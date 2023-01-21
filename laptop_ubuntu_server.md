@@ -64,3 +64,8 @@ HD_IDLE_OPTS="-i 900 -c ata -l /var/log/hd-idle.log"
 systemctl enable hd-idle
 systemctl start hd-idle
 ```
+
+## disable wifi permanently
+```
+rfkill block wlan0
+```
