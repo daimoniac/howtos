@@ -49,3 +49,18 @@ ExecStart=/usr/bin/setterm --powerdown=1 --powersave on
 WantedBy=multi-user.target
 ```
 
+## powerdown HDs when idle - userspace daemon with logging
+```
+wget https://github.com/adelolmo/hd-idle/releases/download/v1.18/hd-idle_1.18_amd64.deb
+dpkg -i hd-idle_1.18_amd64.deb
+```
+/etc/default/hd-idle:
+```
+START_HD_IDLE=true
+HD_IDLE_OPTS="-i 900 -c ata -l /var/log/hd-idle.log"
+```
+
+```
+systemctl enable hd-idle
+systemctl start hd-idle
+```
